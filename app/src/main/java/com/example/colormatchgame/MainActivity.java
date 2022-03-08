@@ -95,11 +95,37 @@ public class MainActivity extends AppCompatActivity {
                         setArrowImage(arrowState);
 
                         handler.postDelayed(runnable, 100);
-                    }else{
+                    }
+                    else {
                         color_button.setEnabled(false);
-                        Toast.makeText(MainActivity.this, "Game Over", Toast.LENGTH_SHORT).show();
 
-                        }
+                        //DialogBox na nagtatanong kung maglalaro ulit o mag kuquit na
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                        builder1.setMessage("GAME OVER!");
+                        builder1.setCancelable(true);
+
+                        builder1.setPositiveButton(
+                                "QUIT",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        System.exit(0);
+                                    }
+                                });
+
+                        builder1.setNegativeButton(
+                                "PLAY AGAIN",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        finish();
+
+                                        //irerestart yung mismong program
+                                        startActivity(getIntent());
+                                    }
+                                });
+
+                        AlertDialog alert = builder1.create();
+                        alert.show();
+                       }
                     }
                 }
             };
