@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                         //DialogBox na nagtatanong kung maglalaro ulit o mag kuquit na
                         AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
                         builder1.setMessage("GAME OVER!");
-                        builder1.setCancelable(true);
+                        builder1.setCancelable(false);
 
                         builder1.setPositiveButton(
                                 "QUIT",
